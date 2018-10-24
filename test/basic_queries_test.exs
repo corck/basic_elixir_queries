@@ -5,8 +5,12 @@ defmodule BasicQueriesTest do
   import BasicQueries.Repo
   alias BasicQueries.Repo
 
-  def user_attributes() do
+  def user_attributes do
     %{username: "max", email: "max@headroom.com"}
+  end
+
+  def setup_user do
+
   end
 
   test "create user" do

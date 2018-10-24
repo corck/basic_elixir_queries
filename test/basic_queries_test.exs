@@ -9,14 +9,15 @@ defmodule BasicQueriesTest do
     %{username: "max", email: "max@headroom.com"}
   end
 
-  def setup_user do
-
+  def create_user do
+    {:ok, user} = %User{}
+                  |> User.changeset(user_attributes())
+                  |> Repo.insert
+    user
   end
 
   test "create user" do
-    {:ok, user} = %User{}
-    |> User.changeset(user_attributes())
-    |> Repo.insert
+    user = create_user
     assert user.username == Map.get(user_attributes(), :username)
   end
 end
